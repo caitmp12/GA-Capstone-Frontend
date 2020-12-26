@@ -13,17 +13,17 @@ const Auth = (props) => {
 
     const actions = {
         signup: {
-            action: "signup",
+            type: "signup",
             payload: formData
         },
         login: {
-            action: "login",
+            type: "login",
             payload: formData
         }
     }
 
     const handleChange = (event) => {
-        setFormData(...formData, {[event.target.name]: event.target.value})
+        setFormData({...formData, [event.target.name]: event.target.value})
     }
 
     const handleSubmit = (event) => {
@@ -33,7 +33,7 @@ const Auth = (props) => {
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input type="text" name="username" value={formData.username} onChange={handleChange} />
                 <input type="text" name="password" value={formData.password} onChange={handleChange}/>
                 <input type="submit" value={type} />
