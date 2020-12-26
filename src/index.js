@@ -9,9 +9,7 @@ import { AppState } from "./AppState"
 ReactDOM.render(
   <AppState>
     <Router>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
+      <App />
     </Router>
   </AppState>,
   document.getElementById('root')
