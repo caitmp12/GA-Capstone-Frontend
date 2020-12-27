@@ -1,6 +1,7 @@
 import React from "react"
 import {useAppState} from "../AppState.jsx"
 import {Route, Link} from "react-router-dom"
+import Form from "../components/Form"
 
 const Dashboard = (props) => {
 
@@ -8,8 +9,13 @@ const Dashboard = (props) => {
     const {token, url, hosts, username} = state
 
     const getHosts = async () => {
-        const response = fetch(url + "/hosts/")
-        const hosts = await response.json()
+        const response = await fetch(url + "/hosts/", {
+            method: "get",
+            headers: { 
+                Authorization: "bearer" + token
+            }
+        })
+        const fetchHosts = await response.json()
         dispatch({type: "getHosts", payload: hosts})
     }
 
@@ -24,7 +30,7 @@ const Dashboard = (props) => {
             <Link to="/dashboard/new">New to sayHi? Make A New Profile Here<button>New</button></Link>
             <Route path="/dashboard/:action" render={(rp) => <Form {...rp} getHosts={getHosts}/> }/>
             <ul>
-                {hosts.map(note => {
+                {hosts.map(host => {
                     <div key={host.id}>
                         <h2>{host.name}</h2>
                         <h2>{host.zipcode}</h2>

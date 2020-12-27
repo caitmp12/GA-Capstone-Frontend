@@ -1,6 +1,8 @@
 import React from "react"
 import { useAppState } from "../AppState.jsx"
 
+
+
 const Form = (props) => {
 
     const { state, dispatch } = useAppState()
@@ -38,7 +40,8 @@ const Form = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         actions[action]().then((data) => {
-            
+            props.getHosts()
+            props.history.push("/dashboard/")
         })
     }
 
