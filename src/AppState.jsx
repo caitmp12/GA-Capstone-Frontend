@@ -40,7 +40,7 @@ const reducer = (state, action) => {
             window.localStorage.removeItem("auth")
             return newState 
             break
-        case "appHosts":
+        case "getHosts":
             newState = {...state, notes: action.payload}
             return newState 
             break        

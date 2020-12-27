@@ -26,7 +26,6 @@ React.useState(() => {
   return (
     <div className="App">
       <Route path="/" component={Nav} />
-      <h1>Say Hi!</h1>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/auth/:form" component={Auth} />

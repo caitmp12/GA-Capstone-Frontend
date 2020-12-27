@@ -6,7 +6,7 @@ import { useAppState } from "../AppState.jsx"
 const Form = (props) => {
 
     const { state, dispatch } = useAppState()
-    const {token} = state
+    const { token } = state
     const action = props.match.params.action
     const [formData, setFormData] = React.useState(state[action])
 
@@ -56,9 +56,9 @@ const Form = (props) => {
                 <input type="text" name="rate" value={formData.rate} onChange={handleChange} />
                 <input type="text" name="animals" value={formData.animals} onChange={handleChange} />
                 <input type="submit" value={action} />
-            </form> 
+            </form>
         </div>
-          
+
     )
 }
 
