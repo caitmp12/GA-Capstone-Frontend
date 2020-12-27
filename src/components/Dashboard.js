@@ -22,7 +22,7 @@ const Dashboard = (props) => {
             <h1>{username}'s</h1>
             <h2>Profile</h2>
             <Link to="/dashboard/new">New to sayHi? Make A New Profile Here<button>New</button></Link>
-            <Route path="/dashboard/new" component={Form} />
+            <Route path="/dashboard/:action" render={(rp) => <Form {...rp} getHosts={getHosts}/> }/>
             <ul>
                 {hosts.map(note => {
                     <div key={host.id}>

@@ -9,13 +9,14 @@ const initialState = {
     token: null,
     username: null,
     hosts: null,
-    blank: {
+    new: {
         name: "",
         zipcode: "",
         rate: "",
         animals: ""    
     },
-    selected: {
+    edit: {
+        id: 0,
         name: "",
         zipcode: "",
         rate: "",
