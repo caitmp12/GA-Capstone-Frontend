@@ -25,13 +25,12 @@ React.useState(() => {
 
   return (
     <div className="App">
-      <Nav />
+      <Route path="/" component={Nav} />
       <h1>Say Hi!</h1>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/auth/:form" component={Auth} />
         <Route path="/dashboard" component={Dashboard} />
-        <Home />
       </Switch>
     </div>
   );

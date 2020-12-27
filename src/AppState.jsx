@@ -7,7 +7,8 @@ import {useContext, useReducer} from "react"
 const initialState = {
     url: "http://localhost:3000",
     token: null,
-    username: null
+    username: null,
+    hosts: null
 }
 
 //Reducer
@@ -24,7 +25,12 @@ const reducer = (state, action) => {
         case "logout":
             newState = {...state, token: null, username: null}
             window.localStorage.removeItem("auth")
-            return newState    
+            return newState 
+            break
+        case "appHosts":
+            newState = {...state, notes: action.payload}
+            return newState 
+            break        
         default:
             return state
             break    

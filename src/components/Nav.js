@@ -4,7 +4,7 @@ import {useAppState} from "../AppState.jsx"
 
 const Nav = (props) => {
 
-    const {dispatch} = useAppState()
+    const { state, dispatch } = useAppState()
 
 
     return (
@@ -12,11 +12,12 @@ const Nav = (props) => {
             <h1>sayHi!</h1>
             <nav>
                 <Link to="/">Home</Link>
-                <Link to="/auth/signup">Signup</Link>
-                <Link to="/auth/login">Login</Link>
-                <div onClick={() => {
+                {!state.token ? (<><Link to="/auth/signup">Signup</Link>
+                <Link to="/auth/login">Login</Link></>) : null}
+                {state.token ? <div onClick={() => {
                     dispatch({type: "logout"})
-                }}>Logout</div>
+                    props.history.push("/")
+                }}>Logout</div> : null}
             </nav>
         </header>
     )
