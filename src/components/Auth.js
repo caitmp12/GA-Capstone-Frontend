@@ -9,17 +9,37 @@ const Auth = (props) => {
         password: ""
     })
 
-    const {dispatch} = useAppState()
+    const [userData, setUserData] = React.useState(null)
+    const { state, dispatch } = useAppState()
+    console.log(state)
+
+    React.useEffect(() => {
+        if (userData) {
+            console.log(userData)
+            const { token, user } = userData
+            dispatch({ type: "auth", payload: { token, username: user.username } })
+        }
+    }, [userData])
 
     const actions = {
-        signup: {
-            type: "signup",
-            payload: formData
+        signup: () => {
+            return fetch(state.url + "/users", {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            }).then((response) => response.json())
         },
-        login: {
-            type: "login",
-            payload: formData
-        }
+        login: () => {
+            return fetch(state.url + "/login", {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            }).then((response) => response.json())
+        },
     }
 
     const handleChange = (event) => {
@@ -28,7 +48,9 @@ const Auth = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(actions[type])
+        actions[type]().then((data) => {
+            setUserData(data)
+        })
     }
 
     return (

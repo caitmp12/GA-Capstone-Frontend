@@ -5,7 +5,7 @@ import {useContext, useReducer} from "react"
 //Initial State
 
 const initialState = {
-    url: "http://localhost:3001",
+    url: "http://localhost:3000",
     token: null,
     username: null
 }
@@ -18,7 +18,7 @@ const reducer = (state, action) => {
 
     switch(action.type){
         case "signup":
-            fetch(state.url + "/users/", {
+            fetch("http://localhost:3000/users/", {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json"
@@ -30,29 +30,30 @@ const reducer = (state, action) => {
                 return {
                     ...state,
                     token: user.token,
-                    username: user.username
+                    username: user.username,
                 }
             })
-            break
+        break
         case "login":
-            fetch(state.url + "/login/", {
+            fetch("http://localhost:3000/login/", {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(action.payload)
+                body: JSON.stringify(action.payload),
             })
                 .then(response => response.json())
                 .then(user => {
                     return {
                         ...state,
                         token: user.token,
-                        username: user.username
+                        username: user.username,
                     }
                 })  
             break      
         default:
             return state 
+            break
     }
 
 }
