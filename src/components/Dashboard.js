@@ -1,5 +1,6 @@
 import React from "react"
 import {useAppState} from "../AppState.jsx"
+import {Route, Link} from "react-router-dom"
 
 const Dashboard = (props) => {
 
@@ -20,6 +21,16 @@ const Dashboard = (props) => {
         <div>
             <h1>{username}'s</h1>
             <h2>Profile</h2>
+            <Link to="/dashboard/new">New to sayHi? Make A New Profile Here<button>New</button></Link>
+            <Route path="/dashboard/new" component={Form} />
+            <ul>
+                {hosts.map(note => {
+                    <div key={host.id}>
+                        <h2>{host.name}</h2>
+                        <h2>{host.zipcode}</h2>
+                    </div>
+                })}
+            </ul>
         </div>
     )
 

@@ -8,7 +8,19 @@ const initialState = {
     url: "http://localhost:3000",
     token: null,
     username: null,
-    hosts: null
+    hosts: null,
+    blank: {
+        name: "",
+        zipcode: "",
+        rate: "",
+        animals: ""    
+    },
+    selected: {
+        name: "",
+        zipcode: "",
+        rate: "",
+        animals: ""         
+    },
 }
 
 //Reducer

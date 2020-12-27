@@ -1,11 +1,18 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { useAppState } from "../AppState.jsx"
 
 const Form = (props) => {
 
+    const { state, dispatch } = useAppState()
+
+
     return (
-        <h1>Form</h1>
+        <div>
+            <form>
+            </form> 
+        </div>
+          
     )
 }
 
-export default Form;
+export default Form
