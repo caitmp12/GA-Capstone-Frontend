@@ -9,17 +9,17 @@ import Dashboard from "./components/Dashboard"
 import {useAppState} from "./AppState.jsx"
 
 
-function App() {
+function App(props) {
 
 const {state, dispatch} = useAppState()
 React.useState(() => {
   const auth = JSON.parse(window.localStorage.getItem("auth"))
-  // if (auth) {
-  //   dispatch({type: "auth", payload: auth})
-  //   window.location = window.location + "/dashboard"
-  // } else {
-  //   window.location = window.location.host + "/"
-  // }
+  if (auth) {
+    dispatch({type: "auth", payload: auth})
+    props.history.push("/dashboard")
+  } else {
+    props.history.push("/")
+  }
 }, [])
 
 
