@@ -2,6 +2,7 @@ import React from "react"
 import { Route, Link, Switch } from "react-router-dom"
 import { useAppState } from "../AppState"
 import { Button } from '@material-ui/core'
+import { ThemeProvider } from '@material-ui/core/styles'
 
 const Nav = (props) => {
 
@@ -12,7 +13,7 @@ const Nav = (props) => {
         <header>
             <h1>sayHi!</h1>
             <nav>
-                <Link to="/"><Button>Home</Button></Link>
+                <Link to="/"><Button variant="outlined">Home</Button></Link>
                 {!state.token ? (<><Link to="/auth/signup"><Button>Signup</Button></Link>
                     <Link to="/auth/login"><Button>Login</Button></Link></>) : null}
                 {state.token ? <div onClick={() => {

@@ -7,6 +7,7 @@ import Auth from "../pages/Auth"
 import Nav from "../pages/Nav"
 import Dashboard from "../pages/Dashboard"
 import { useAppState } from "../AppState"
+import { ThemeProvider } from '@material-ui/core/styles'
 
 
 function App(props) {

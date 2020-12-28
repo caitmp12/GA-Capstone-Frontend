@@ -1,5 +1,6 @@
 import React from "react"
 import { useAppState } from "../AppState"
+import { ThemeProvider } from '@material-ui/core/styles'
 
 const Auth = (props) => {
 

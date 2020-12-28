@@ -5,11 +5,15 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import { AppState } from "./AppState.jsx"
+import { ThemeProvider } from "@material-ui/core/styles"
+import theme from "./theme"
 
 ReactDOM.render(
   <AppState>
     <Router>
+      <ThemeProvider theme={theme}>
       <Route path="/" component={App} />
+      </ThemeProvider>
     </Router>
   </AppState>,
   document.getElementById('root')

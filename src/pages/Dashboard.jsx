@@ -3,6 +3,7 @@ import { useAppState } from "../AppState"
 import { Route, Link } from "react-router-dom"
 import Form from "./Form"
 import { Button } from '@material-ui/core'
+import { ThemeProvider } from '@material-ui/core/styles'
 
 const Dashboard = (props) => {
 
@@ -30,7 +31,7 @@ const Dashboard = (props) => {
                 <h1>Welcome {username}!</h1>
                 <div class="hostheader">
                 <h2>Your Host Profiles</h2>
-                    <Link to="/dashboard/new"><Button>Create a New Profile</Button></Link>
+                    <Link to="/dashboard/new"><Button variant="outlined">Create a New Profile</Button></Link>
                 <Route path="/dashboard/:action" render={(rp) => <Form {...rp} getHosts={getHosts} />} />
                 </div>
                 <ul>
@@ -41,11 +42,11 @@ const Dashboard = (props) => {
                             <h2>ZipCode: {host.zipcode}</h2>
                             <h2>Current Rate: ${host.rate}</h2>
                             <h2>You Host: {host.animals}</h2>
-                            <Button onClick={() => {
+                            <Button variant="outlined" onClick={() => {
                                 dispatch({ type: "select", payload: host })
                                 props.history.push("/dashboard/edit")
                             }}>Edit Profile</Button>
-                            <Button onClick={() => {
+                            <Button color="secondary" variant="outlined" onClick={() => {
                                 fetch(url + "/hosts/" + host.id, {
                                     method: "delete",
                                     headers: {
