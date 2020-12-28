@@ -41,8 +41,12 @@ const reducer = (state, action) => {
             return newState 
             break
         case "getHosts":
-            newState = {...state, notes: action.payload}
+            newState = {...state, hosts: action.payload}
             return newState 
+            break   
+        case "select":
+            newState = {...state, edit: action.payload} 
+            return newState
             break        
         default:
             return state
@@ -50,49 +54,6 @@ const reducer = (state, action) => {
     }
 }
 
-// const reducer = (state, action) => {
-
-//     switch(action.type){
-//         case "signup":
-//             fetch("http://localhost:3000/users/", {
-//                 method: "post",
-//                 headers: {
-//                     "Content-Type": "application/json"
-//                 },
-//                 body: JSON.stringify(action.payload)
-//             })
-//             .then(response => response.json())
-//             .then(user => {
-//                 return {
-//                     ...state,
-//                     token: user.token,
-//                     username: user.username,
-//                 }
-//             })
-//         break
-//         case "login":
-//             fetch("http://localhost:3000/login/", {
-//                 method: "post",
-//                 headers: {
-//                     "Content-Type": "application/json"
-//                 },
-//                 body: JSON.stringify(action.payload),
-//             })
-//                 .then(response => response.json())
-//                 .then(user => {
-//                     return {
-//                         ...state,
-//                         token: user.token,
-//                         username: user.username,
-//                     }
-//                 })  
-//             break      
-//         default:
-//             return state 
-//             break
-//     }
-
-// }
 
 //App Context
 

@@ -1,6 +1,6 @@
 import React from "react"
 import { Route, Link, Switch } from "react-router-dom"
-import { useAppState } from "../AppState.jsx"
+import { useAppState } from "../AppState"
 
 const Nav = (props) => {
 
