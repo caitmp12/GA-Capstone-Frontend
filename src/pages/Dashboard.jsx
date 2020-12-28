@@ -2,6 +2,7 @@ import React from "react"
 import { useAppState } from "../AppState"
 import { Route, Link } from "react-router-dom"
 import Form from "./Form"
+import { Button } from '@material-ui/core'
 
 const Dashboard = (props) => {
 
@@ -29,7 +30,7 @@ const Dashboard = (props) => {
                 <h1>Welcome {username}!</h1>
                 <div class="hostheader">
                 <h2>Your Host Profiles</h2>
-                <Link to="/dashboard/new"><button>Create a New Profile</button></Link>
+                    <Link to="/dashboard/new"><Button>Create a New Profile</Button></Link>
                 <Route path="/dashboard/:action" render={(rp) => <Form {...rp} getHosts={getHosts} />} />
                 </div>
                 <ul>
@@ -40,11 +41,11 @@ const Dashboard = (props) => {
                             <h2>ZipCode: {host.zipcode}</h2>
                             <h2>Current Rate: ${host.rate}</h2>
                             <h2>You Host: {host.animals}</h2>
-                            <button onClick={() => {
+                            <Button onClick={() => {
                                 dispatch({ type: "select", payload: host })
                                 props.history.push("/dashboard/edit")
-                            }}>Edit Profile</button>
-                            <button onClick={() => {
+                            }}>Edit Profile</Button>
+                            <Button onClick={() => {
                                 fetch(url + "/hosts/" + host.id, {
                                     method: "delete",
                                     headers: {
@@ -52,7 +53,7 @@ const Dashboard = (props) => {
                                     }
                                 })
                                 .then(() => getHosts())
-                            }}>Delete Profile</button>
+                            }}>Delete Profile</Button>
                         </div>
                     ))}
                 </ul>
