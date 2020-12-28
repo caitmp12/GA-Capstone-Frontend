@@ -26,20 +26,24 @@ const Dashboard = (props) => {
     const loaded = () => {
         return (
             <div>
-                <h1>dashboard</h1>
-                <h1>{username}'s</h1>
-                <h2>Profile</h2>
-                <Link to="/dashboard/new">New to sayHi? Make A New Profile Here<button>New</button></Link>
+                <h1>{username}</h1>
+                <div class="hostheader">
+                <h2>Your Host Profiles</h2>
+                <Link to="/dashboard/new"><button>Create a New Profile</button></Link>
                 <Route path="/dashboard/:action" render={(rp) => <Form {...rp} getHosts={getHosts} />} />
+                </div>
                 <ul>
                     {hosts.map(host => (
                         <div key={host.id}>
-                            <h2>{host.name}</h2>
-                            <h2>{host.zipcode}</h2>
+                            <img src="https://vetmed.tamu.edu/news/wp-content/uploads/sites/9/2018/05/20150804-doghouse.jpg"/>
+                            <h2>Name: {host.name}</h2>
+                            <h2>ZipCode: {host.zipcode}</h2>
+                            <h2>Current Rate: ${host.rate}</h2>
+                            <h2>You Host: {host.animals}</h2>
                             <button onClick={() => {
                                 dispatch({ type: "select", payload: host })
                                 props.history.push("/dashboard/edit")
-                            }}>Edit Host</button>
+                            }}>Edit Profile</button>
                             <button onClick={() => {
                                 fetch(url + "/hosts/" + host.id, {
                                     method: "delete",
@@ -48,7 +52,7 @@ const Dashboard = (props) => {
                                     }
                                 })
                                 .then(() => getHosts())
-                            }}>Delete Host</button>
+                            }}>Delete Profile</button>
                         </div>
                     ))}
                 </ul>
