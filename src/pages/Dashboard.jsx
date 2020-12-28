@@ -40,6 +40,15 @@ const Dashboard = (props) => {
                                 dispatch({ type: "select", payload: host })
                                 props.history.push("/dashboard/edit")
                             }}>Edit Host</button>
+                            <button onClick={() => {
+                                fetch(url + "/hosts/" + host.id, {
+                                    method: "delete",
+                                    headers: {
+                                        Authorization: "bearer " + token
+                                    }
+                                })
+                                .then(() => getHosts())
+                            }}>Delete Host</button>
                         </div>
                     ))}
                 </ul>
