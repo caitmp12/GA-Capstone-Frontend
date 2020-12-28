@@ -23,15 +23,16 @@ const Form = (props) => {
             }).then((response) => response.json())
         },
         edit: () => {
+            const {host, ...data} = formData 
             return fetch(state.url + "/hosts/" + state.edit.id, {
                 method: "put",
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: "bearer " + token
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(data),
             }).then((response) => response.json())
-        },
+        }
     }
 
     //HandleChange Function
