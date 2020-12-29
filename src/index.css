@@ -26,6 +26,27 @@ code {
   margin-right: 2%;
 }
 
+.home {
+  color: white;
+  text-align: right;
+  padding: 30px;
+  font-size: 25px;
+}
+
+.auth-form {
+  padding: 80px; 
+}
+
+.auth-form form input{
+  background-color: whitesmoke;
+  color: black;
+  padding: 8px;
+  border-radius: 4px;
+  display: block; 
+  margin: 10px auto;
+  text-align: center; 
+}
+
 .dashboard {
   background-color: white;
   margin-left: 2%;
