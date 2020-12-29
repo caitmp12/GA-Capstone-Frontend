@@ -5,7 +5,7 @@ import {useContext, useReducer} from "react"
 //Initial State
 
 const initialState = {
-    url: "http://sayhi-backend2.herokuapp.com",
+    url: "https://sayhi-backend2.herokuapp.com",
     token: null,
     username: null,
     hosts: null,
