@@ -28,7 +28,9 @@ const Dashboard = (props) => {
     const loaded = () => {
         return (
             <div className="dashboard">
+                <div className="username">
                 <h1>Welcome {username}!</h1>
+                </div>
                 <div class="hostheader">
                 <h2>Your Host Profiles</h2>
                     <Link to="/dashboard/new"><Button color="secondary" variant="contained">Create a New Profile</Button></Link>

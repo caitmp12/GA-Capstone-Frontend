@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(187, 38, 38);
 }
 
 code {
@@ -29,7 +30,7 @@ code {
   background-color: white;
   margin-left: 2%;
   margin-right: 2%;
-  margin-top: 0;
+  margin-top: 2%;
   margin-bottom: 0;
 }
 
@@ -43,4 +44,11 @@ code {
   display: flex;
   padding-left: 30px;
   font-size: 60px;
+}
+
+.username {
+  display: flex;
+  padding-top: 10px;
+  padding-left: 30px;
+  font-size: 20px;  
 }
