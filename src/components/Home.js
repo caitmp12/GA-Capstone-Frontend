@@ -5,7 +5,7 @@ const Home = (props) => {
 
     return (
         <div className="home">
-            <p>Welcome to sayHi! The homier alternative to kennels for your pets.
+            <p>Welcome to sayHi! The home-style alternative to kennels for your pets.
             <br/>
             Search for Pet Hosts in your area today!
             </p>
