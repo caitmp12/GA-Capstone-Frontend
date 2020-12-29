@@ -6,8 +6,9 @@
 
 2. Technologies used
     Built with: React
+    Hosts are full CRUD
     Styled with: CSS and Material UI
-
+    Deployed on Netflify
 
 
 3. Approach Taken
