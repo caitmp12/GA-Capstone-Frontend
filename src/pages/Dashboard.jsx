@@ -39,14 +39,16 @@ const Dashboard = (props) => {
                 <ul>
                     {hosts.map(host => (
                         <div key={host.id}>
+                            <div className="profile-container">
                             <div className="img-div">
-                            <img src="https://vetmed.tamu.edu/news/wp-content/uploads/sites/9/2018/05/20150804-doghouse.jpg"/>
+                            <img src="https://vetmed.tamu.edu/news/wp-content/uploads/sites/9/2018/05/20150804-doghouse.jpg" height="250px"/>
                             </div>
                             <div className="info-div">
                             <h2>Name: {host.name}</h2>
                             <h2>ZipCode: {host.zipcode}</h2>
                             <h2>Current Rate: ${host.rate}</h2>
                             <h2>You Host: {host.animals}</h2>
+                            </div>
                             </div>
                             <Button variant="outlined" onClick={() => {
                                 dispatch({ type: "select", payload: host })
