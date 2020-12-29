@@ -27,26 +27,30 @@ const Dashboard = (props) => {
 
     const loaded = () => {
         return (
-            <div>
+            <div className="dashboard">
                 <h1>Welcome {username}!</h1>
                 <div class="hostheader">
                 <h2>Your Host Profiles</h2>
-                    <Link to="/dashboard/new"><Button variant="outlined">Create a New Profile</Button></Link>
+                    <Link to="/dashboard/new"><Button color="secondary" variant="contained">Create a New Profile</Button></Link>
                 <Route path="/dashboard/:action" render={(rp) => <Form {...rp} getHosts={getHosts} />} />
                 </div>
                 <ul>
                     {hosts.map(host => (
                         <div key={host.id}>
+                            <div className="img-div">
                             <img src="https://vetmed.tamu.edu/news/wp-content/uploads/sites/9/2018/05/20150804-doghouse.jpg"/>
+                            </div>
+                            <div className="info-div">
                             <h2>Name: {host.name}</h2>
                             <h2>ZipCode: {host.zipcode}</h2>
                             <h2>Current Rate: ${host.rate}</h2>
                             <h2>You Host: {host.animals}</h2>
+                            </div>
                             <Button variant="outlined" onClick={() => {
                                 dispatch({ type: "select", payload: host })
                                 props.history.push("/dashboard/edit")
                             }}>Edit Profile</Button>
-                            <Button color="secondary" variant="outlined" onClick={() => {
+                            <Button color="primary" variant="contained" onClick={() => {
                                 fetch(url + "/hosts/" + host.id, {
                                     method: "delete",
                                     headers: {
